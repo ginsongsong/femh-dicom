@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Date Range Picker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- Page level plugin CSS-->
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="https://cdn.rawgit.com/BlackrockDigital/startbootstrap-sb-admin/master/css/sb-admin.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/nitinhayaran/jRange/master/jquery.range.css">
+    <style>
+        .slider-container { margin-left: 10%; }
+        #mainNav .navbar-collapse .navbar-sidenav>.nav-item { margin-bottom: 2rem; }
+    </style>
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <a class="navbar-brand" href="index.html">FEMH CXR Selector</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+            <!--
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <a class="nav-link" href="index.html">
+              <i class="fa fa-fw fa-dashboard"></i>
+              <span class="nav-link-text">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+            <a class="nav-link" href="charts.html">
+              <i class="fa fa-fw fa-area-chart"></i>
+              <span class="nav-link-text">Charts</span>
+            </a>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+            <a class="nav-link" href="tables.html">
+              <i class="fa fa-fw fa-table"></i>
+              <span class="nav-link-text">Tables</span>
+            </a>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+              <i class="fa fa-fw fa-wrench"></i>
+              <span class="nav-link-text">Components</span>
+            </a>
+            <ul class="sidenav-second-level collapse" id="collapseComponents">
+              <li>
+                <a href="navbar.html">Navbar</a>
+              </li>
+              <li>
+                <a href="cards.html">Cards</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+              <i class="fa fa-fw fa-file"></i>
+              <span class="nav-link-text">Example Pages</span>
+            </a>
+            <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+              <li>
+                <a href="login.html">Login Page</a>
+              </li>
+              <li>
+                <a href="register.html">Registration Page</a>
+              </li>
+              <li>
+                <a href="forgot-password.html">Forgot Password Page</a>
+              </li>
+              <li>
+                <a href="blank.html">Blank Page</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+              <i class="fa fa-fw fa-sitemap"></i>
+              <span class="nav-link-text">Menu Levels</span>
+            </a>
+            <ul class="sidenav-second-level collapse" id="collapseMulti">
+              <li>
+                <a href="#">Second Level Item</a>
+              </li>
+              <li>
+                <a href="#">Second Level Item</a>
+              </li>
+              <li>
+                <a href="#">Second Level Item</a>
+              </li>
+              <li>
+                <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
+                <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                  <li>
+                    <a href="#">Third Level Item</a>
+                  </li>
+                  <li>
+                    <a href="#">Third Level Item</a>
+                  </li>
+                  <li>
+                    <a href="#">Third Level Item</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          -->
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                <a class="nav-link" href="#">
+                    <i class="far fa-thumbs-up"></i>
+                    <span class="nav-link-text">Normal</span>
+                    <span><input type="checkbox" id="chkbox_normal" class="float-right" checked="checked" value="" /></span>
+                </a>
+                <input type="hidden" class="range-slider" id="normal_range" value="80,90" />
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-ambulance"></i>
+                    <span class="nav-link-text">ETT</span>
+                    <span><input type="checkbox" id="chkbox_ett" class="float-right" value="" /></span>
+                </a>
+                <input type="hidden" class="range-slider" id="ett_range" value="80,90" />
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                <a class="nav-link" href="#">
+                    <i class="far fa-life-ring"></i>
+                    <span class="nav-link-text">Port-A</span>
+                    <span><input type="checkbox" id="chkbox_port" class="float-right" value="" /></span>
+                </a>
+                <input type="hidden" class="range-slider" id="port_range" value="80,90" />
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                <a class="nav-link" href="#">
+                    <i class="far fa-heart"></i>
+                    <span class="nav-link-text">Cardiomegaly</span>
+                    <span><input type="checkbox" id="chkbox_cardiomegaly" class="float-right" value="" /></span>
+                </a>
+                <input type="hidden" class="range-slider" id="cardiomegaly_range" value="80,90" />
+            </li>
+        </ul>
+        <!--
+        <ul class="navbar-nav sidenav-toggler">
+          <li class="nav-item">
+            <a class="nav-link text-center" id="sidenavToggler">
+              <i class="fa fa-fw fa-angle-left"></i>
+            </a>
+          </li>
+        </ul>
+        -->
+        <ul class="navbar-nav ml-auto">
+            <!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-fw fa-envelope"></i>
+              <span class="d-lg-none">Messages
+                <span class="badge badge-pill badge-primary">12 New</span>
+              </span>
+              <span class="indicator text-primary d-none d-lg-block">
+                <i class="fa fa-fw fa-circle"></i>
+              </span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+              <h6 class="dropdown-header">New Messages:</h6>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <strong>David Miller</strong>
+                <span class="small float-right text-muted">11:21 AM</span>
+                <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <strong>Jane Smith</strong>
+                <span class="small float-right text-muted">11:21 AM</span>
+                <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <strong>John Doe</strong>
+                <span class="small float-right text-muted">11:21 AM</span>
+                <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item small" href="#">View all messages</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-fw fa-bell"></i>
+              <span class="d-lg-none">Alerts
+                <span class="badge badge-pill badge-warning">6 New</span>
+              </span>
+              <span class="indicator text-warning d-none d-lg-block">
+                <i class="fa fa-fw fa-circle"></i>
+              </span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+              <h6 class="dropdown-header">New Alerts:</h6>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <span class="text-success">
+                  <strong>
+                    <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+                </span>
+                <span class="small float-right text-muted">11:21 AM</span>
+                <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <span class="text-danger">
+                  <strong>
+                    <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
+                </span>
+                <span class="small float-right text-muted">11:21 AM</span>
+                <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <span class="text-success">
+                  <strong>
+                    <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+                </span>
+                <span class="small float-right text-muted">11:21 AM</span>
+                <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item small" href="#">View all alerts</a>
+            </div>
+          </li>
+          -->
+          <li class="nav-item">
+            <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+            <i class="fa fa-calendar"></i>&nbsp;
+            <span></span> <i class="fa fa-caret-down"></i>
+            </div>
+          </li>
+          <li class="nav-item">
+            <button id="search_btn" class="btn btn-primary" type="button">
+              <!--
+              <i class="fa fa-search"></i>
+              -->
+              Search
+            </button>
+          </li>
+          <!--
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+              <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+          </li>
+          -->
+        </ul>
+      </div>
+    </nav>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <!--
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">My Dashboard</li>
+        </ol>
+        -->
+        <!-- DataTables Card-->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table"></i> Selector Results</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Accno</th>
+                    <th>Examname</th>
+                    <th>Examdate</th>
+                    <th>Normal</th>
+                    <th>ETT</th>
+                    <th>Port-A</th>
+                    <th>Cardiomegaly</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                      <th>Accno</th>
+                      <th>Examname</th>
+                      <th>Examdate</th>
+                      <th>Normal</th>
+                      <th>ETT</th>
+                      <th>Port-A</th>
+                      <th>Cardiomegaly</th>
+                    </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+      </div>
+      <!-- /.container-fluid-->
+      <!-- /.content-wrapper-->
+      <footer class="sticky-footer">
+        <div class="container">
+          <div class="text-center">
+            <small>Copyright © Your Website 2018</small>
+          </div>
+        </div>
+      </footer>
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+      </a>
+      <!-- Logout Modal-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+              <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Bootstrap core JavaScript-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nitinhayaran/jRange/master/jquery.range-min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="https://cdn.rawgit.com/BlackrockDigital/startbootstrap-sb-admin/master/js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script type="text/javascript">
+    $(function() {
+
+        var start = moment().subtract(6, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            alwaysShowCalendars: true,
+            opens: 'left',
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+
+        cb(start, end);
+
+        $('.range-slider').jRange({
+            from: 0,
+            to: 100,
+            step: 1,
+            scale: [0,25,50,75,100],
+            format: '%s',
+            width: '200',
+            showLabels: true,
+            isRange : true
+        });
+
+        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+            console.log(picker.startDate.format('YYYY-MM-DD'));
+            console.log(picker.endDate.format('YYYY-MM-DD'));
+        });
+
+        $('#search_btn').click(function() {
+            /*
+            var picker = $('#reportrange').data('daterangepicker');
+            console.log(picker.startDate.format('YYYY-MM-DD'));
+            console.log(picker.endDate.format('YYYY-MM-DD'));
+            $.ajax({
+                type: "POST",
+                url: "http://dicom.icu:5000/selector",
+                data: JSON.stringify({
+                    start_date: picker.startDate.format('YYYY-MM-DD'),
+                    end_date: picker.endDate.format('YYYY-MM-DD'),
+                    normal: {
+                    high: '0.9',
+                    low: '0.88'
+                    }
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(data){
+                console.log(data);
+                },
+                failure: function(errMsg) {
+                    alert(errMsg);
+                }
+            });
+            */
+            data_table.ajax.reload();
+            //data_table.draw();
+        });
+
+        var data_table = $("#dataTable").DataTable({
+            //deferLoading: 0,
+            //serverSide: true,
+            //processing: true,
+            /* FIXME: how to disable init ajax loading */
+            ajax: {
+                type: "POST",
+                contentType: "application/json",
+                url: 'http://dicom.icu:5000/selector',
+                dataType: "json",
+                data: function(d) {
+                    var picker = $('#reportrange').data('daterangepicker');
+                    let date_query_obj = {
+                        start_date: picker.startDate.format('YYYY-MM-DD'),
+                        end_date: picker.endDate.format('YYYY-MM-DD')
+                    };
+                    var cond_query_obj = {};
+                    ['normal', 'ett', 'port', 'cardiomegaly'].forEach(function(cat) {
+                        //console.log(cat);
+                        if ($('#chkbox_' + cat).prop("checked")) {
+                            var [low, high] = $('#'+cat+'_range').val().split(',');
+                            cond_query_obj[cat] = {};
+                            cond_query_obj[cat]['low'] = low / 100;
+                            cond_query_obj[cat]['high'] = high / 100;
+                        }
+                    });
+                    let merged_query_obj = {...date_query_obj, ...cond_query_obj};
+                    console.log(merged_query_obj);
+                    return JSON.stringify(merged_query_obj);
+                },
+                dataSrc: "results"
+            },
+            columns: [
+                { data: "accno" },
+                { data: "examname" },
+                { data: "examdate_str" },
+                { data: "normal",
+                  render: $.fn.dataTable.render.number(',', '.', 5) },
+                { data: "ett",
+                  render: $.fn.dataTable.render.number(',', '.', 5) },
+                { data: "port",
+                  render: $.fn.dataTable.render.number(',', '.', 5) },
+                { data: "cardiomegaly",
+                  render: $.fn.dataTable.render.number(',', '.', 5) }
+            ],
+            order: [ [3, 'desc'] ]
+        });
+    });
+    </script>
+    </div>
+</body>
+</html>
